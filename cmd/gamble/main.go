@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"log"
 
@@ -29,7 +28,7 @@ func start(game func()(rule.Result, error), times int) (*result, error){
 	for i := 0; i < times; i++{
 		ans, err := game()
 		if err != nil {
-			return res, 
+			return res, xerrors.Errorf("start failed %w",  err)
 		}
 
 		switch ans {
