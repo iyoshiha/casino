@@ -1,9 +1,10 @@
 package rule
 
 import (
-	"errors"
 	"math/rand"
 	"time"
+
+	"golang.org/x/xerrors"
 )
 
 type Result int
@@ -22,12 +23,12 @@ func Baccarrat() (Result, error){
 
     if random <= 1 {
 		return Tie, nil
-    } else if random <= 49{
+    } else if random <= 50{
 		return Player, nil
-    } else if random <= 99 {
+    } else if random <= 100 {
 		return Banker, nil
     } else {
         // このブロックは通常は実行されませんが、余分な保険として含めています
-		return 0, errors.New("error")
+		return 0, xerrors.Errorf("not 0 ~ 99:actual: %f", random)
     }
 }
