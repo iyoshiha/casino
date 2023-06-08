@@ -1,29 +1,30 @@
 package main
 
 import (
-	"github.com/casino/rule"
-	
+	"github.com/casino/internal/rule"
 )
 
 type result struct{
-	player_wins int
-	banker_wins int
-	tie_numbers int
+	wins int
+	looses int
+	ties int
 }
 
 func main(){
 	
 }
 
-func start(game func()(int, error), times int) result{
+func start(game func()(rule.Result, error), times int) result, error{
 	for i := 0; i < times; i++{
 		a, err := game()
 		if err != nil {
-			return nil
+			return a, nil
 		}
 
 		switch a {
-		case rule.
+		case rule.Player:
+		case rule.Banker:
+		case rule.Tie:
 		}
 	}
 
