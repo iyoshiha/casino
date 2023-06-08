@@ -8,6 +8,7 @@ import (
 	"golang.org/x/xerrors"
 )
 
+const tries = 10000
 
 type result struct{
 	wins int
@@ -16,7 +17,7 @@ type result struct{
 }
 
 func main(){
-	res, err := start(rule.Baccarrat, 100)
+	res, err := start(rule.Baccarrat, tries)
 	if err!=nil{
 		log.Fatal(err)
 	}
