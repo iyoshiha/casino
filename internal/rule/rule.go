@@ -6,13 +6,15 @@ import (
 	"time"
 )
 
+type Result int
+
 const (
-	tie = 0
-	player = 1
-	banker = 2
+	Tie Result  = 0 
+	Player Result = 1
+	Banker Result = 2
 )
 
-func baccarrat() (int, error){
+func baccarrat() (Result, error){
     rand.Seed(time.Now().UnixNano())
 
     // 乱数を生成し、それに基づいて確率的な出力を行う
